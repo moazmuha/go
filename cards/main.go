@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	cards := newDeck()
+	// cards := newDeck()
 
 	// cards.say()
 
@@ -18,7 +18,12 @@ func main() {
 
 	// print(cards.toString())
 
-	cards.saveToFile("deck1.txt")
+	// cards.saveToFile("deck1.txt")
+
+	deckFromFile := deckFromFile("deck1.txt")
+	deckFromFile.say()
+
+	print("Finished!")
 
 }
 

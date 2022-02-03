@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt" 
-	"strings"
+	"fmt"
 	"io/ioutil"
+	"os"
+	"strings"
 )
 
 // Creating type deck
@@ -33,17 +34,27 @@ func (d deck) say() {
 
 }
 
-func deal(d deck, size int) (deck, deck) {
-	return d[:size], d[size:]
-}
+func deal(d deck, size int) (deck, deck) { return d[:size], d[size:] }
 
-func (d deck) toString() string {
-	return strings.Join([]string(d), ", ")
-}
+func (d deck) toString() string { return strings.Join([]string(d), ", ") }
 
 func (d deck) saveToFile(file string) error {
 
 	err := ioutil.WriteFile(file, []byte(d.toString()), 0666)
 	return err
+
+}
+
+func deckFromFile(filename string) deck {
+
+	bytes, err := ioutil.ReadFile(filename)
+	if err != nil {
+		print("Something went wrong:")
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	stringDeck := string(bytes)
+	arr := strings.Split(stringDeck, ",")
+	return deck(arr)
 
 }
