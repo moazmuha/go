@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -20,8 +22,12 @@ func main() {
 
 	// cards.saveToFile("deck1.txt")
 
-	deckFromFile := deckFromFile("deck1.txt")
-	deckFromFile.say()
+	// deckFromFile := deckFromFile("deck1.txt")
+	// deckFromFile.say()
+
+	cards := newDeck()
+	cards.shuffle()
+	cards.say()
 
 	print("Finished!")
 
