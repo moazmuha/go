@@ -3,27 +3,27 @@ package main
 import "fmt"
 
 type contactInfo struct {
-	email string
+	email  string
 	number string
 }
 
 type person struct {
 	firstName string
-	lastName string
+	lastName  string
 	contactInfo
 }
 
 func main() {
 
-	moaz := 
+	moaz :=
 		person{
-			firstName:  "Moaz", 
-			lastName: "Muhammad", 
+			firstName: "Moaz",
+			lastName:  "Muhammad",
 			contactInfo: contactInfo{
-						email: "moaz@gmail.com", 
-						number: "123",
-					},
-		 }
+				email:  "moaz@gmail.com",
+				number: "123",
+			},
+		}
 
 	moaz.introduce()
 
@@ -40,11 +40,11 @@ func main() {
 
 	println("Moaz's new email is ", moaz.contactInfo.email)
 
-	moaz.updateName("New Moaz") 
+	moaz.updateName("New Moaz")
 
 	println("Moaz's new name is ", moaz.firstName)
-	
-	l := []int{1,2}
+
+	l := []int{1, 2}
 	fmt.Println(l)
 	swap(l)
 	fmt.Println(l)
@@ -64,14 +64,14 @@ func (p *person) updateEmail(email string) {
 	p.contactInfo.email = email
 }
 
-func (p *person) updateName(name string){
+func (p *person) updateName(name string) {
 	(*p).firstName = name
 }
 
-func swap(l []int){
+func swap(l []int) {
 	l[0], l[1] = l[1], l[0]
 }
 
-func printPointer(s *string){
+func printPointer(s *string) {
 	fmt.Println(s)
 }

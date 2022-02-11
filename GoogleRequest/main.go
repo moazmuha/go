@@ -16,7 +16,7 @@ func main() {
 	}
 
 	// bs := make([]byte, 9999)
- 
+
 	// resp.Body.Read(bs)
 
 	// fmt.Println(string(bs))
@@ -27,7 +27,7 @@ func main() {
 
 }
 
-type logWriter struct {}
+type logWriter struct{}
 
 func (logWriter) Write(bs []byte) (int, error) {
 	fmt.Println(string(bs))
